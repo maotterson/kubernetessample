@@ -6,7 +6,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
 
   auth:
     image: nginx
