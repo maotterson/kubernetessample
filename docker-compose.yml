@@ -8,6 +8,14 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
 
+  auth:
+    image: nginx
+    depends_on:
+        - reverse-proxy
+    volumes:
+      - ./auth/wwwroot:/usr/share/nginx/html
+      - ./auth/nginx.conf:/etc/nginx/nginx.conf
+
   webserver:
     image: nginx
     depends_on:
@@ -23,6 +31,3 @@ services:
     volumes:
       - ./web/wwwroot:/usr/share/nginx/html
       - ./web/nginx.conf:/etc/nginx/nginx.conf
-
-volumes:
-  wwwroot:
